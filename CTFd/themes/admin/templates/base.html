@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<title>Admin Panel</title>
+	<meta name="robots" content="noindex, nofollow">
 	<meta name="description" content="{{ meta_description | default('Admin panel CTFd untuk membuat dan mengelola tantangan CTF, termasuk tipe standard dan dynamic dengan scoring dinamis.') }}">
 	<link rel="canonical" href="http://127.0.0.1:4000/admin/challenges/new">
 	<meta charset="utf-8">
@@ -15,16 +16,16 @@
 	{{ Assets.css("assets/css/codemirror.scss", theme="admin") }}
 	<script type="text/javascript">
 		var init = {
-			'urlRoot': "{{ request.script_root }}",
-			'csrfNonce': "{{ Session.nonce }}",
-			'userMode': "{{ Configs.user_mode }}",
-			'userId': "{{ Session.id }}",
-			'userName': "{{ User.name | tojson }}",
-			'userEmail': "{{ User.email | tojson }}",
-			'teamId': "{{ Team.id | tojson }}", 
-			'teamName': "{{ Team.name | tojson }}",
-			'start': "{{ Configs.start | tojson }}",
-			'end': "{{ Configs.end | tojson }}"
+			'urlRoot': {{ request.script_root }},
+			'csrfNonce': {{ Session.nonce }},
+			'userMode': {{ Configs.user_mode }},
+			'userId': {{ Session.id }},
+			'userName': {{ User.name | tojson }},
+			'userEmail': {{ User.email | tojson }},
+			'teamId': {{ Team.id | tojson }}, 
+			'teamName': {{ Team.name | tojson }},
+			'start': {{ Configs.start | tojson }},
+			'end': {{ Configs.end | tojson }}
 		}
 	</script>
 	{% block stylesheets %} {% endblock %}

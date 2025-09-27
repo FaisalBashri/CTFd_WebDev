@@ -1,6 +1,6 @@
 import os  # noqa: I001
 
-from flask import Blueprint, abort
+from flask import Blueprint, abort, g
 from flask import current_app as app
 from flask import (
     make_response,
@@ -560,3 +560,7 @@ def robots():
     r = make_response(text, 200)
     r.mimetype = "text/plain"
     return r
+
+@app.before_request
+def set_locale():
+    g.locale = request.accept_languages.best_match(['en', 'id']) or 'en'
